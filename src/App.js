@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from "react";
+import HomePage from "./components/HomePage";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import AdminLogin from "./components/AdminLogin";
+import ButcherSignup from "./components/ButcherSignup";
+import ButcherLogin from "./components/ButcherLogin";
+import ProtectedAdminRoute from "./components/ProtectedAdminRoute";
+import AdminDashboard from "./components/AdminDashboard";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/admin-login" element={<AdminLogin />} />
+        <Route path="/butcher-signup" element={<ButcherSignup />} />
+        <Route path="/butcher-login" element={<ButcherLogin />} />
+
+        {/* 🔒 Protected Admin Route */}
+        <Route
+          path="/admin/dashboard"
+          element={
+            <ProtectedAdminRoute>
+              <AdminDashboard />
+            </ProtectedAdminRoute>
+          }
+        />
+      </Routes>
+    </Router>
   );
 }
 
