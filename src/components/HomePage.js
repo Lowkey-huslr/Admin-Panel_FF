@@ -1,4 +1,4 @@
-// src/components/HomePage.js
+// src/pages/HomePage.js
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -6,34 +6,31 @@ const HomePage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center bg-gray-100 px-4">
-      <h1 className="text-3xl font-bold text-red-600 mb-10 text-center">
-        Welcome to Admin Panel
-      </h1>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 gap-4">
+      <h1 className="text-4xl font-bold text-gray-800 mb-10">Welcome to Fresh Flesh</h1>
 
-      <div className="w-full max-w-sm space-y-4">
-        <button
-          onClick={() => navigate("/admin-login")}
-          className="w-full py-4 text-lg font-semibold bg-blue-600 text-white rounded-xl hover:bg-blue-700"
-        >
-          🔐 Admin Login
-        </button>
-        <button
-          onClick={() => navigate("/butcher-login")}
-          className="w-full py-4 text-lg font-semibold bg-green-600 text-white rounded-xl hover:bg-green-700"
-        >
-          🔑 Butcher Login
-        </button>
-        <button
-          onClick={() => navigate("/butcher-signup")}
-          className="w-full py-4 text-lg font-semibold bg-purple-600 text-white rounded-xl hover:bg-purple-700"
-        >
-          🪓 Butcher Signup
-        </button>
-      </div>
+      <button
+        onClick={() => navigate("/admin/dashboard")}
+        className="px-8 py-4 text-lg bg-blue-600 hover:bg-blue-700 text-white rounded-lg"
+      >
+        Admin Dashboard
+      </button>
+
+      <button
+        onClick={() => navigate("/butcher/login")}
+        className="px-8 py-4 text-lg bg-green-600 hover:bg-green-700 text-white rounded-lg"
+      >
+        Butcher Login
+      </button>
+
+      <button
+        onClick={() => navigate("/butcher/signup")}
+        className="px-8 py-4 text-lg bg-purple-600 hover:bg-purple-700 text-white rounded-lg"
+      >
+        Butcher Signup
+      </button>
     </div>
   );
 };
 
 export default HomePage;
-
