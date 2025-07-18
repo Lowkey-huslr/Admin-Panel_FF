@@ -40,6 +40,11 @@ const AdminDashboard = () => {
     fetchButchers();
   }, [navigate]);
 
+  useEffect(() => {
+  console.log("AdminDashboard loaded");
+}, []);
+
+
   const fetchMeats = async () => {
     const res = await axios.get(API);
     setMeats(res.data);
